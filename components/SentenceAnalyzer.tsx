@@ -70,20 +70,20 @@ export function SentenceAnalyzer() {
   };
 
   return (
-    <div className='min-h-screen bg-green-50/20 dark:from-gray-900 dark:to-gray-800'>
+    <div className='min-h-screen bg-green-50/20'>
       <div className='max-w-6xl px-4 py-8 mx-auto'>
         {/* Header */}
         <div className='mb-10 text-center'>
-          <h1 className='text-4xl font-bold bg-gradient-to-r from-[#65d5a3] to-[#4bc48a] bg-clip-text text-transparent mb-3'>
+          <h1 className='text-4xl font-bold bg-gradient-to-r from-[#22c55e] to-[#16a34a] bg-clip-text text-transparent mb-3'>
             Sentence Analyzer
           </h1>
-          <p className='text-lg text-gray-600 dark:text-gray-400'>
+          <p className='text-lg text-gray-600'>
             Enter a sentence to get a detailed grammatical analysis
           </p>
         </div>
 
         {/* Input Section */}
-        <div className='p-6 mb-8 bg-white border border-gray-100 shadow-xl dark:bg-gray-800 rounded-2xl dark:border-gray-700'>
+        <div className='p-6 mb-8 bg-white border border-gray-100 shadow-xl rounded-2xl'>
           <div className='space-y-4'>
             <div className='relative'>
               <textarea
@@ -91,7 +91,7 @@ export function SentenceAnalyzer() {
                 onChange={(e) => setSentence(e.target.value)}
                 onKeyDown={handleKeyDown}
                 placeholder='Type your sentence here...'
-                className='w-full h-28 px-5 py-4 text-lg border-2 border-gray-200 dark:border-gray-600 rounded-xl focus:border-[#65d5a3] focus:ring-4 focus:ring-[#65d5a3]/20 outline-none transition-all duration-200 resize-none bg-gray-50 dark:bg-gray-700 dark:text-white placeholder-gray-400'
+                className='w-full h-28 px-5 py-4 text-lg border-2 border-gray-200 rounded-xl focus:border-[#22c55e] focus:ring-4 focus:ring-[#22c55e]/20 outline-none transition-all duration-200 resize-none bg-gray-50 placeholder-gray-400'
                 rows={3}
               />
               <div className='absolute text-sm text-gray-400 bottom-3 right-3'>
@@ -102,7 +102,7 @@ export function SentenceAnalyzer() {
             <button
               onClick={handleAnalyze}
               disabled={!sentence.trim() || mutation.isPending}
-              className='w-full py-4 px-6 bg-gradient-to-r from-[#65d5a3] to-[#4bc48a] text-white font-semibold text-lg rounded-xl hover:from-[#5ac996] hover:to-[#40b87e] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-3'
+              className='w-full py-4 px-6 bg-gradient-to-r from-[#22c55e] to-[#16a34a] text-white font-semibold text-lg rounded-xl hover:from-[#16a34a] hover:to-[#15803d] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-3'
             >
               {mutation.isPending ? (
                 <>
@@ -151,11 +151,11 @@ export function SentenceAnalyzer() {
 
         {/* Error State */}
         {mutation.isError && (
-          <div className='p-6 mb-8 border border-red-200 bg-red-50 dark:bg-red-900/30 dark:border-red-800 rounded-2xl'>
+          <div className='p-6 mb-8 border border-red-200 bg-red-50 rounded-2xl'>
             <div className='flex items-start gap-4'>
-              <div className='flex items-center justify-center flex-shrink-0 w-12 h-12 bg-red-100 rounded-full dark:bg-red-800'>
+              <div className='flex items-center justify-center flex-shrink-0 w-12 h-12 bg-red-100 rounded-full'>
                 <svg
-                  className='w-6 h-6 text-red-600 dark:text-red-300'
+                  className='w-6 h-6 text-red-600'
                   fill='none'
                   stroke='currentColor'
                   viewBox='0 0 24 24'
@@ -169,10 +169,10 @@ export function SentenceAnalyzer() {
                 </svg>
               </div>
               <div className='flex-1'>
-                <h3 className='text-lg font-semibold text-red-800 dark:text-red-200'>
+                <h3 className='text-lg font-semibold text-red-800'>
                   An error occurred
                 </h3>
-                <p className='mt-1 text-red-600 dark:text-red-300'>
+                <p className='mt-1 text-red-600'>
                   {mutation.error?.message ||
                     'Something went wrong. Please try again.'}
                 </p>

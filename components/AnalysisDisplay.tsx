@@ -20,16 +20,14 @@ function SectionCard({
 }) {
   return (
     <div
-      className={`bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 overflow-hidden ${className}`}
+      className={`bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden ${className}`}
     >
-      <div className='bg-gradient-to-r from-[#65d5a3]/10 to-[#4bc48a]/10 dark:from-[#65d5a3]/20 dark:to-[#4bc48a]/20 px-5 py-4 border-b border-gray-100 dark:border-gray-700'>
+      <div className='bg-gradient-to-r from-[#65d5a3]/10 to-[#4bc48a]/10 px-5 py-4 border-b border-gray-100'>
         <div className='flex items-center gap-3'>
           <div className='w-8 h-8 bg-[#65d5a3] rounded-lg flex items-center justify-center text-white'>
             {icon}
           </div>
-          <h3 className='font-semibold text-gray-800 dark:text-white'>
-            {title}
-          </h3>
+          <h3 className='font-semibold text-gray-800'>{title}</h3>
         </div>
       </div>
       <div className='p-5'>{children}</div>
@@ -45,15 +43,12 @@ function Badge({
   variant?: 'default' | 'success' | 'warning' | 'info' | 'purple' | 'orange';
 }) {
   const variants = {
-    default: 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300',
-    success: 'bg-[#65d5a3]/20 text-[#3a9d6e] dark:text-[#65d5a3]',
-    warning:
-      'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400',
-    info: 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400',
-    purple:
-      'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400',
-    orange:
-      'bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400',
+    default: 'bg-gray-100 text-gray-700',
+    success: 'bg-[#65d5a3]/20 text-[#3a9d6e]',
+    warning: 'bg-amber-100 text-amber-700',
+    info: 'bg-blue-100 text-blue-700',
+    purple: 'bg-purple-100 text-purple-700',
+    orange: 'bg-orange-100 text-orange-700',
   };
 
   return (
@@ -74,11 +69,9 @@ function InfoRow({
 }) {
   if (value === undefined || value === null) return null;
   return (
-    <div className='flex items-center justify-between py-2 border-b border-gray-100 dark:border-gray-700 last:border-0'>
-      <span className='text-sm text-gray-500 dark:text-gray-400'>{label}</span>
-      <span className='font-medium text-gray-800 capitalize dark:text-white'>
-        {value}
-      </span>
+    <div className='flex items-center justify-between py-2 border-b border-gray-100 last:border-0'>
+      <span className='text-sm text-gray-500'>{label}</span>
+      <span className='font-medium text-gray-800 capitalize'>{value}</span>
     </div>
   );
 }
@@ -103,15 +96,13 @@ function DifficultyMeter({ score }: { score?: number }) {
   return (
     <div className='space-y-2'>
       <div className='flex items-center justify-between'>
-        <span className='text-sm text-gray-500 dark:text-gray-400'>
-          Difficulty
-        </span>
-        <span className='text-lg font-bold text-gray-800 dark:text-white'>
+        <span className='text-sm text-gray-500'>Difficulty</span>
+        <span className='text-lg font-bold text-gray-800'>
           {actualScore}/10{' '}
           <span className='text-sm font-normal'>({getLabel()})</span>
         </span>
       </div>
-      <div className='h-3 overflow-hidden bg-gray-200 rounded-full dark:bg-gray-700'>
+      <div className='h-3 overflow-hidden bg-gray-200 rounded-full'>
         <div
           className={`h-full bg-gradient-to-r ${getColor()} rounded-full transition-all duration-500`}
           style={{ width: `${percentage}%` }}
@@ -165,31 +156,29 @@ export function AnalysisDisplay({ analysis }: AnalysisProps) {
 
       {/* Quick Stats */}
       <div className='grid grid-cols-2 gap-4 md:grid-cols-4'>
-        <div className='p-4 bg-white border border-gray-100 shadow-md dark:bg-gray-800 rounded-xl dark:border-gray-700'>
+        <div className='p-4 bg-white border border-gray-100 shadow-md'>
           <div className='text-3xl font-bold text-[#65d5a3] mb-1'>
             {analysis?.basicInfo?.wordCount ?? '-'}
           </div>
-          <div className='text-sm text-gray-500 dark:text-gray-400'>Words</div>
+          <div className='text-sm text-gray-500'>Words</div>
         </div>
-        <div className='p-4 bg-white border border-gray-100 shadow-md dark:bg-gray-800 rounded-xl dark:border-gray-700'>
+        <div className='p-4 bg-white border border-gray-100 shadow-md'>
           <div className='text-xl font-bold text-[#65d5a3] mb-1 capitalize'>
             {analysis?.basicInfo?.sentenceType || '-'}
           </div>
-          <div className='text-sm text-gray-500 dark:text-gray-400'>Type</div>
+          <div className='text-sm text-gray-500'>Type</div>
         </div>
-        <div className='p-4 bg-white border border-gray-100 shadow-md dark:bg-gray-800 rounded-xl dark:border-gray-700'>
+        <div className='p-4 bg-white border border-gray-100 shadow-md'>
           <div className='text-xl font-bold text-[#65d5a3] mb-1 capitalize'>
             {analysis?.basicInfo?.structure || '-'}
           </div>
-          <div className='text-sm text-gray-500 dark:text-gray-400'>
-            Structure
-          </div>
+          <div className='text-sm text-gray-500'>Structure</div>
         </div>
-        <div className='p-4 bg-white border border-gray-100 shadow-md dark:bg-gray-800 rounded-xl dark:border-gray-700'>
+        <div className='p-4 bg-white border border-gray-100 shadow-md'>
           <div className='text-xl font-bold text-[#65d5a3] mb-1 capitalize'>
             {analysis?.basicInfo?.complexityScore || '-'}
           </div>
-          <div className='text-sm text-gray-500 dark:text-gray-400'>Level</div>
+          <div className='text-sm text-gray-500'>Level</div>
         </div>
       </div>
 
@@ -247,7 +236,7 @@ export function AnalysisDisplay({ analysis }: AnalysisProps) {
         >
           <DifficultyMeter score={analysis?.difficultyRating?.score} />
           {analysis?.difficultyRating?.reasoning && (
-            <p className='mt-4 text-sm leading-relaxed text-gray-600 dark:text-gray-400'>
+            <p className='mt-4 text-sm leading-relaxed text-gray-600'>
               {analysis.difficultyRating.reasoning}
             </p>
           )}
@@ -275,14 +264,12 @@ export function AnalysisDisplay({ analysis }: AnalysisProps) {
         >
           <div className='grid gap-6 md:grid-cols-2'>
             {analysis?.grammaticalComponents?.subject && (
-              <div className='p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl'>
+              <div className='p-4 bg-blue-50 rounded-xl'>
                 <div className='flex items-center gap-2 mb-2'>
                   <div className='w-3 h-3 bg-blue-500 rounded-full' />
-                  <span className='font-semibold text-blue-700 dark:text-blue-400'>
-                    Subject
-                  </span>
+                  <span className='font-semibold text-blue-700'>Subject</span>
                 </div>
-                <p className='font-medium text-gray-800 dark:text-white'>
+                <p className='font-medium text-gray-800'>
                   &quot;{analysis.grammaticalComponents.subject?.text}&quot;
                 </p>
                 {analysis.grammaticalComponents.subject?.type && (
@@ -294,19 +281,19 @@ export function AnalysisDisplay({ analysis }: AnalysisProps) {
             )}
 
             {analysis?.grammaticalComponents?.predicate && (
-              <div className='p-4 bg-purple-50 dark:bg-purple-900/20 rounded-xl'>
+              <div className='p-4 bg-purple-50 rounded-xl'>
                 <div className='flex items-center gap-2 mb-2'>
                   <div className='w-3 h-3 bg-purple-500 rounded-full' />
-                  <span className='font-semibold text-purple-700 dark:text-purple-400'>
+                  <span className='font-semibold text-purple-700'>
                     Predicate
                   </span>
                 </div>
-                <p className='font-medium text-gray-800 dark:text-white'>
+                <p className='font-medium text-gray-800'>
                   &quot;{analysis.grammaticalComponents.predicate?.text}&quot;
                 </p>
                 {analysis.grammaticalComponents.predicate?.mainVerb && (
                   <div className='mt-2 space-y-1 text-sm'>
-                    <p className='text-gray-600 dark:text-gray-400'>
+                    <p className='text-gray-600'>
                       <span className='font-medium'>Main Verb:</span>{' '}
                       {analysis.grammaticalComponents.predicate.mainVerb}
                     </p>
@@ -316,40 +303,36 @@ export function AnalysisDisplay({ analysis }: AnalysisProps) {
             )}
 
             {analysis?.grammaticalComponents?.object && (
-              <div className='p-4 bg-orange-50 dark:bg-orange-900/20 rounded-xl'>
+              <div className='p-4 bg-orange-50 rounded-xl'>
                 <div className='flex items-center gap-2 mb-2'>
                   <div className='w-3 h-3 bg-orange-500 rounded-full' />
-                  <span className='font-semibold text-orange-700 dark:text-orange-400'>
-                    Object
-                  </span>
+                  <span className='font-semibold text-orange-700'>Object</span>
                 </div>
-                <p className='font-medium text-gray-800 dark:text-white'>
+                <p className='font-medium text-gray-800'>
                   &quot;{analysis.grammaticalComponents.object}&quot;
                 </p>
               </div>
             )}
 
             {analysis?.grammaticalComponents?.complement && (
-              <div className='p-4 bg-green-50 dark:bg-green-900/20 rounded-xl'>
+              <div className='p-4 bg-green-50 rounded-xl'>
                 <div className='flex items-center gap-2 mb-2'>
                   <div className='w-3 h-3 bg-green-500 rounded-full' />
-                  <span className='font-semibold text-green-700 dark:text-green-400'>
+                  <span className='font-semibold text-green-700'>
                     Complement
                   </span>
                 </div>
-                <p className='font-medium text-gray-800 dark:text-white'>
+                <p className='font-medium text-gray-800'>
                   &quot;{analysis.grammaticalComponents.complement}&quot;
                 </p>
               </div>
             )}
 
             {(analysis?.grammaticalComponents?.modifiers?.length ?? 0) > 0 && (
-              <div className='p-4 bg-pink-50 dark:bg-pink-900/20 rounded-xl md:col-span-2'>
+              <div className='p-4 bg-pink-50'>
                 <div className='flex items-center gap-2 mb-2'>
                   <div className='w-3 h-3 bg-pink-500 rounded-full' />
-                  <span className='font-semibold text-pink-700 dark:text-pink-400'>
-                    Modifiers
-                  </span>
+                  <span className='font-semibold text-pink-700'>Modifiers</span>
                 </div>
                 <div className='flex flex-wrap gap-2'>
                   {analysis.grammaticalComponents?.modifiers?.map((mod, i) => (
@@ -385,41 +368,41 @@ export function AnalysisDisplay({ analysis }: AnalysisProps) {
         >
           <div className='grid gap-4 md:grid-cols-2'>
             {analysis?.transformations?.negative && (
-              <div className='p-4 border border-gray-200 rounded-lg dark:border-gray-600'>
-                <p className='mb-1 text-sm font-medium text-gray-500 dark:text-gray-400'>
+              <div className='p-4 border border-gray-200 rounded-lg'>
+                <p className='mb-1 text-sm font-medium text-gray-500'>
                   Negative Form
                 </p>
-                <p className='text-gray-800 dark:text-white'>
+                <p className='text-gray-800'>
                   {analysis.transformations.negative}
                 </p>
               </div>
             )}
             {analysis?.transformations?.question && (
-              <div className='p-4 border border-gray-200 rounded-lg dark:border-gray-600'>
-                <p className='mb-1 text-sm font-medium text-gray-500 dark:text-gray-400'>
+              <div className='p-4 border border-gray-200 rounded-lg'>
+                <p className='mb-1 text-sm font-medium text-gray-500'>
                   Question Form
                 </p>
-                <p className='text-gray-800 dark:text-white'>
+                <p className='text-gray-800'>
                   {analysis.transformations.question}
                 </p>
               </div>
             )}
             {analysis?.transformations?.passive && (
-              <div className='p-4 border border-gray-200 rounded-lg dark:border-gray-600'>
-                <p className='mb-1 text-sm font-medium text-gray-500 dark:text-gray-400'>
+              <div className='p-4 border border-gray-200 rounded-lg'>
+                <p className='mb-1 text-sm font-medium text-gray-500'>
                   Passive Voice
                 </p>
-                <p className='text-gray-800 dark:text-white'>
+                <p className='text-gray-800'>
                   {analysis.transformations.passive}
                 </p>
               </div>
             )}
             {analysis?.transformations?.active && (
-              <div className='p-4 border border-gray-200 rounded-lg dark:border-gray-600'>
-                <p className='mb-1 text-sm font-medium text-gray-500 dark:text-gray-400'>
+              <div className='p-4 border border-gray-200 rounded-lg'>
+                <p className='mb-1 text-sm font-medium text-gray-500'>
                   Active Voice
                 </p>
-                <p className='text-gray-800 dark:text-white'>
+                <p className='text-gray-800'>
                   {analysis.transformations.active}
                 </p>
               </div>
@@ -451,21 +434,18 @@ export function AnalysisDisplay({ analysis }: AnalysisProps) {
             {/* Nouns */}
             {(analysis?.wordsAnalysis?.nouns?.length ?? 0) > 0 && (
               <div className='space-y-2'>
-                <h4 className='flex items-center gap-2 font-semibold text-blue-600 dark:text-blue-400'>
+                <h4 className='flex items-center gap-2 font-semibold text-blue-600'>
                   <span className='w-2 h-2 bg-blue-500 rounded-full' />
                   Nouns
                 </h4>
                 <div className='space-y-1'>
                   {analysis.wordsAnalysis?.nouns?.map((noun, i) => (
-                    <div
-                      key={i}
-                      className='text-sm bg-blue-50 dark:bg-blue-900/20 px-3 py-1.5 rounded-lg'
-                    >
-                      <span className='font-medium text-gray-800 dark:text-white'>
+                    <div key={i} className='text-sm bg-blue-50'>
+                      <span className='font-medium text-gray-800'>
                         {noun?.word}
                       </span>
                       {noun?.type && (
-                        <span className='ml-2 text-xs text-blue-600 dark:text-blue-400'>
+                        <span className='ml-2 text-xs text-blue-600'>
                           ({noun.type})
                         </span>
                       )}
@@ -478,16 +458,13 @@ export function AnalysisDisplay({ analysis }: AnalysisProps) {
             {/* Verbs */}
             {(analysis?.wordsAnalysis?.verbs?.length ?? 0) > 0 && (
               <div className='space-y-2'>
-                <h4 className='flex items-center gap-2 font-semibold text-red-600 dark:text-red-400'>
+                <h4 className='flex items-center gap-2 font-semibold text-red-600'>
                   <span className='w-2 h-2 bg-red-500 rounded-full' />
                   Verbs
                 </h4>
                 <div className='space-y-1'>
                   {analysis.wordsAnalysis?.verbs?.map((verb, i) => (
-                    <div
-                      key={i}
-                      className='text-sm bg-red-50 dark:bg-red-900/20 px-3 py-1.5 rounded-lg font-medium text-gray-800 dark:text-white'
-                    >
+                    <div key={i} className='text-sm bg-red-50'>
                       {verb}
                     </div>
                   ))}
@@ -503,17 +480,14 @@ export function AnalysisDisplay({ analysis }: AnalysisProps) {
               (analysis?.wordsAnalysis?.adjectives?.superlative?.length ?? 0) >
                 0) && (
               <div className='space-y-2'>
-                <h4 className='flex items-center gap-2 font-semibold text-green-600 dark:text-green-400'>
+                <h4 className='flex items-center gap-2 font-semibold text-green-600'>
                   <span className='w-2 h-2 bg-green-500 rounded-full' />
                   Adjectives
                 </h4>
                 <div className='space-y-1'>
                   {analysis.wordsAnalysis?.adjectives?.positive?.map(
                     (adj, i) => (
-                      <div
-                        key={i}
-                        className='text-sm bg-green-50 dark:bg-green-900/20 px-3 py-1.5 rounded-lg font-medium text-gray-800 dark:text-white'
-                      >
+                      <div key={i} className='text-sm bg-green-50'>
                         {adj}
                       </div>
                     )
@@ -525,16 +499,13 @@ export function AnalysisDisplay({ analysis }: AnalysisProps) {
             {/* Prepositions */}
             {(analysis?.wordsAnalysis?.prepositions?.length ?? 0) > 0 && (
               <div className='space-y-2'>
-                <h4 className='flex items-center gap-2 font-semibold text-purple-600 dark:text-purple-400'>
+                <h4 className='flex items-center gap-2 font-semibold text-purple-600'>
                   <span className='w-2 h-2 bg-purple-500 rounded-full' />
                   Prepositions
                 </h4>
                 <div className='space-y-1'>
                   {analysis.wordsAnalysis?.prepositions?.map((prep, i) => (
-                    <div
-                      key={i}
-                      className='text-sm bg-purple-50 dark:bg-purple-900/20 px-3 py-1.5 rounded-lg font-medium text-gray-800 dark:text-white'
-                    >
+                    <div key={i} className='text-sm bg-purple-50'>
                       {prep}
                     </div>
                   ))}
@@ -545,16 +516,13 @@ export function AnalysisDisplay({ analysis }: AnalysisProps) {
             {/* Adverbs */}
             {(analysis?.wordsAnalysis?.adverbs?.length ?? 0) > 0 && (
               <div className='space-y-2'>
-                <h4 className='flex items-center gap-2 font-semibold text-yellow-600 dark:text-yellow-400'>
+                <h4 className='flex items-center gap-2 font-semibold text-yellow-600'>
                   <span className='w-2 h-2 bg-yellow-500 rounded-full' />
                   Adverbs
                 </h4>
                 <div className='space-y-1'>
                   {analysis.wordsAnalysis?.adverbs?.map((adv, i) => (
-                    <div
-                      key={i}
-                      className='text-sm bg-yellow-50 dark:bg-yellow-900/20 px-3 py-1.5 rounded-lg font-medium text-gray-800 dark:text-white'
-                    >
+                    <div key={i} className='text-sm bg-yellow-50'>
                       {adv}
                     </div>
                   ))}
@@ -565,16 +533,13 @@ export function AnalysisDisplay({ analysis }: AnalysisProps) {
             {/* Pronouns */}
             {(analysis?.wordsAnalysis?.pronouns?.length ?? 0) > 0 && (
               <div className='space-y-2'>
-                <h4 className='flex items-center gap-2 font-semibold text-pink-600 dark:text-pink-400'>
+                <h4 className='flex items-center gap-2 font-semibold text-pink-600'>
                   <span className='w-2 h-2 bg-pink-500 rounded-full' />
                   Pronouns
                 </h4>
                 <div className='space-y-1'>
                   {analysis.wordsAnalysis?.pronouns?.map((pron, i) => (
-                    <div
-                      key={i}
-                      className='text-sm bg-pink-50 dark:bg-pink-900/20 px-3 py-1.5 rounded-lg font-medium text-gray-800 dark:text-white'
-                    >
+                    <div key={i} className='text-sm bg-pink-50'>
                       {pron}
                     </div>
                   ))}
@@ -606,7 +571,7 @@ export function AnalysisDisplay({ analysis }: AnalysisProps) {
           <div className='space-y-4'>
             {(analysis?.phrases?.noun?.length ?? 0) > 0 && (
               <div>
-                <p className='mb-2 text-sm font-medium text-gray-500 dark:text-gray-400'>
+                <p className='mb-2 text-sm font-medium text-gray-500'>
                   Noun Phrases
                 </p>
                 <div className='flex flex-wrap gap-2'>
@@ -620,7 +585,7 @@ export function AnalysisDisplay({ analysis }: AnalysisProps) {
             )}
             {(analysis?.phrases?.verb?.length ?? 0) > 0 && (
               <div>
-                <p className='mb-2 text-sm font-medium text-gray-500 dark:text-gray-400'>
+                <p className='mb-2 text-sm font-medium text-gray-500'>
                   Verb Phrases
                 </p>
                 <div className='flex flex-wrap gap-2'>
@@ -634,7 +599,7 @@ export function AnalysisDisplay({ analysis }: AnalysisProps) {
             )}
             {(analysis?.phrases?.prepositional?.length ?? 0) > 0 && (
               <div>
-                <p className='mb-2 text-sm font-medium text-gray-500 dark:text-gray-400'>
+                <p className='mb-2 text-sm font-medium text-gray-500'>
                   Prepositional Phrases
                 </p>
                 <div className='flex flex-wrap gap-2'>
@@ -671,14 +636,14 @@ export function AnalysisDisplay({ analysis }: AnalysisProps) {
           <div className='space-y-4'>
             {/* {(analysis?.clauses?.independent?.length ?? 0) > 0 && (
               <div>
-                <p className='mb-2 text-sm font-medium text-gray-500 dark:text-gray-400'>
+                <p className='mb-2 text-sm font-medium text-gray-500'>
                   Independent Clauses
                 </p>
                 <div className='space-y-2'>
                   {analysis.clauses?.independent?.map((clause, i) => (
                     <div
                       key={i}
-                      className='bg-[#65d5a3]/10 dark:bg-[#65d5a3]/20 border border-[#65d5a3]/30 rounded-lg px-4 py-2 text-gray-800 dark:text-white'
+                      className='bg-[#65d5a3]/10'
                     >
                       {clause}
                     </div>
@@ -688,14 +653,14 @@ export function AnalysisDisplay({ analysis }: AnalysisProps) {
             )}
             {(analysis?.clauses?.dependent?.length ?? 0) > 0 && (
               <div>
-                <p className='mb-2 text-sm font-medium text-gray-500 dark:text-gray-400'>
+                <p className='mb-2 text-sm font-medium text-gray-500'>
                   Dependent Clauses
                 </p>
                 <div className='space-y-2'>
                   {analysis.clauses?.dependent?.map((clause, i) => (
                     <div
                       key={i}
-                      className='px-4 py-2 text-gray-800 border rounded-lg bg-amber-50 dark:bg-amber-900/20 border-amber-200 dark:border-amber-800 dark:text-white'
+                      className='px-4 py-2 text-gray-800 border rounded-lg bg-amber-50'
                     >
                       {clause}
                     </div>
@@ -731,22 +696,20 @@ export function AnalysisDisplay({ analysis }: AnalysisProps) {
               {analysis.errors?.map((error, i) => (
                 <div
                   key={i}
-                  className='flex items-start gap-3 px-4 py-3 border border-red-200 rounded-lg bg-red-50 dark:bg-red-900/20 dark:border-red-800'
+                  className='flex items-start gap-3 px-4 py-3 border border-red-200 rounded-lg bg-red-50'
                 >
                   <span className='text-red-500'>⚠️</span>
                   <div className='flex-1'>
                     {error.type && (
-                      <div className='mb-1 text-xs font-semibold text-red-600 uppercase dark:text-red-400'>
+                      <div className='mb-1 text-xs font-semibold text-red-600 uppercase'>
                         {error.type}
                       </div>
                     )}
                     {error.issue && (
-                      <div className='mb-1 text-red-700 dark:text-red-300'>
-                        {error.issue}
-                      </div>
+                      <div className='mb-1 text-red-700'>{error.issue}</div>
                     )}
                     {error.suggestion && (
-                      <div className='text-sm text-red-600 dark:text-red-400'>
+                      <div className='text-sm text-red-600'>
                         💡 {error.suggestion}
                       </div>
                     )}
@@ -781,12 +744,10 @@ export function AnalysisDisplay({ analysis }: AnalysisProps) {
               {analysis.learningTips?.map((tip, i) => (
                 <div
                   key={i}
-                  className='flex items-start gap-3 px-4 py-3 rounded-lg bg-yellow-50 dark:bg-yellow-900/20'
+                  className='flex items-start gap-3 px-4 py-3 rounded-lg bg-yellow-50'
                 >
                   <span className='text-lg text-yellow-500'>💡</span>
-                  <span className='text-gray-700 dark:text-gray-300'>
-                    {tip}
-                  </span>
+                  <span className='text-gray-700'>{tip}</span>
                 </div>
               ))}
             </div>
@@ -815,14 +776,9 @@ export function AnalysisDisplay({ analysis }: AnalysisProps) {
           >
             <div className='space-y-3'>
               {analysis.improvements?.map((improvement, i) => (
-                <div
-                  key={i}
-                  className='flex items-start gap-3 bg-[#65d5a3]/10 dark:bg-[#65d5a3]/20 rounded-lg px-4 py-3'
-                >
+                <div key={i} className='flex items-start gap-3 bg-[#65d5a3]/10'>
                   <span className='text-[#65d5a3] text-lg'>✨</span>
-                  <span className='text-gray-700 dark:text-gray-300'>
-                    {improvement}
-                  </span>
+                  <span className='text-gray-700'>{improvement}</span>
                 </div>
               ))}
             </div>
@@ -854,7 +810,7 @@ export function AnalysisDisplay({ analysis }: AnalysisProps) {
               {analysis.keyGrammarConcepts?.map((concept, i) => (
                 <div
                   key={i}
-                  className='bg-gradient-to-r from-[#65d5a3]/20 to-[#4bc48a]/20 border border-[#65d5a3]/40 rounded-full px-5 py-2 text-[#3a9d6e] dark:text-[#65d5a3] font-medium'
+                  className='bg-gradient-to-r from-[#65d5a3]/20 to-[#4bc48a]/20 border border-[#65d5a3]/40 rounded-full px-5 py-2 text-[#3a9d6e]'
                 >
                   {concept}
                 </div>
