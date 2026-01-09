@@ -700,16 +700,19 @@ export function AnalysisDisplay({ analysis }: AnalysisProps) {
               </svg>
             }>
             <div className="space-y-2">
-              {analysis.errors?.map((error, i) => (
-                <div
-                  key={i}
-                  className="flex items-start gap-3 px-4 py-3 border border-red-200 rounded-lg bg-red-50 dark:bg-red-900/20 dark:border-red-800">
-                  <span className="text-red-500">⚠️</span>
-                  <span className="text-red-700 dark:text-red-300">
-                    {error}
-                  </span>
-                </div>
-              ))}
+              {analysis.errors?.map((error, i) => {
+                const errorText = typeof error === 'string' ? error : error?.issue || error?.suggestion || JSON.stringify(error);
+                return (
+                  <div
+                    key={i}
+                    className="flex items-start gap-3 px-4 py-3 border border-red-200 rounded-lg bg-red-50 dark:bg-red-900/20 dark:border-red-800">
+                    <span className="text-red-500">⚠️</span>
+                    <span className="text-red-700 dark:text-red-300">
+                      {errorText}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
           </SectionCard>
         )}
@@ -733,16 +736,19 @@ export function AnalysisDisplay({ analysis }: AnalysisProps) {
               </svg>
             }>
             <div className="space-y-3">
-              {analysis.learningTips?.map((tip, i) => (
-                <div
-                  key={i}
-                  className="flex items-start gap-3 px-4 py-3 rounded-lg bg-yellow-50 dark:bg-yellow-900/20">
-                  <span className="text-lg text-yellow-500">💡</span>
-                  <span className="text-gray-700 dark:text-gray-300">
-                    {tip}
-                  </span>
-                </div>
-              ))}
+              {analysis.learningTips?.map((tip, i) => {
+                const tipText = typeof tip === 'string' ? tip : tip?.suggestion || tip?.issue || JSON.stringify(tip);
+                return (
+                  <div
+                    key={i}
+                    className="flex items-start gap-3 px-4 py-3 rounded-lg bg-yellow-50 dark:bg-yellow-900/20">
+                    <span className="text-lg text-yellow-500">💡</span>
+                    <span className="text-gray-700 dark:text-gray-300">
+                      {tipText}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
           </SectionCard>
         )}
