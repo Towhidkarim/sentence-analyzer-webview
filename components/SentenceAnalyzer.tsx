@@ -6,8 +6,8 @@ import { AnalysisDisplay } from './AnalysisDisplay';
 import { LoadingAnimation } from './LoadingAnimation';
 import type { AnalysisResponse } from './types';
 
-// const ANALYZE_URL = 'https://temp-server-u0iz.onrender.com/analyze-sentence';
-const ANALYZE_URL = 'http://localhost:5000/analyze-sentence';
+const ANALYZE_URL = 'https://temp-server-u0iz.onrender.com/analyze-sentence';
+// const ANALYZE_URL = 'http://localhost:5000/analyze-sentence';
 
 async function analyzeSentence(sentence: string): Promise<AnalysisResponse> {
   try {
