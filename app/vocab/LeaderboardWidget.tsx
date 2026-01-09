@@ -158,7 +158,7 @@ export function LeaderboardWidget() {
               if (e.target === e.currentTarget) setIsOpen(false);
             }}
           >
-            <div className='w-full max-w-2xl max-h-[90vh] bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-2xl shadow-2xl overflow-hidden'>
+            <div className='w-full max-w-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]'>
               {/* Header */}
               <div className='relative px-6 py-8 overflow-hidden text-center bg-gradient-to-r from-[#75ba75] to-[#6cab6c]'>
                 <motion.div
@@ -181,7 +181,7 @@ export function LeaderboardWidget() {
               </div>
 
               {/* Content */}
-              <div className='overflow-y-auto max-h-[calc(90vh-200px)] p-6 space-y-4'>
+              <div className='flex-1 overflow-y-auto p-6 space-y-4'>
                 <motion.div className='space-y-3'>
                   {STATIC_LEADERBOARD.map((entry, index) => (
                     <motion.div
