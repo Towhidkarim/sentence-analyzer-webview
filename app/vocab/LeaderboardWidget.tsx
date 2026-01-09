@@ -207,7 +207,7 @@ export function LeaderboardWidget() {
                         }`}
                       />
 
-                      <div className='relative z-10 flex items-center gap-4'>
+                      <div className='relative z-10 flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4'>
                         {/* Rank Badge */}
                         <motion.div
                           initial={{ scale: 0 }}
@@ -217,7 +217,7 @@ export function LeaderboardWidget() {
                             delay: index * 0.05,
                             damping: 15,
                           }}
-                          className={`flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg ${
+                          className={`flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center font-bold text-base sm:text-lg ${
                             index === 0
                               ? 'bg-gradient-to-br from-[#75ba75] to-[#5fa75f] text-white shadow-lg shadow-[#75ba75]/40'
                               : index === 1
@@ -232,11 +232,11 @@ export function LeaderboardWidget() {
 
                         {/* User Info */}
                         <div className='flex-1 min-w-0'>
-                          <div className='flex items-center gap-3 mb-1'>
+                          <div className='flex items-center gap-2 sm:gap-3 mb-1'>
                             <img
                               src={entry.userImage}
                               alt={entry.userName}
-                              className='object-cover w-8 h-8 border rounded-full border-[#75ba75]/40'
+                              className='object-cover w-6 h-6 sm:w-8 sm:h-8 border rounded-full border-[#75ba75]/40'
                               onError={(e) => {
                                 (e.target as HTMLImageElement).src =
                                   "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath fill='white' d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E";
@@ -261,9 +261,9 @@ export function LeaderboardWidget() {
                             type: 'spring',
                             delay: index * 0.05 + 0.1,
                           }}
-                          className='flex-shrink-0 text-right'
+                          className='flex-shrink-0 text-right self-end sm:self-auto'
                         >
-                          <div className='text-2xl font-bold text-transparent bg-gradient-to-r from-[#75ba75] to-[#6cab6c] bg-clip-text'>
+                          <div className='text-xl sm:text-2xl font-bold text-transparent bg-gradient-to-r from-[#75ba75] to-[#6cab6c] bg-clip-text'>
                             {entry.score}
                           </div>
                           <p className='text-xs text-slate-400'>points</p>
