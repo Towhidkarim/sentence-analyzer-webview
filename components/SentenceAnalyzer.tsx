@@ -6,7 +6,8 @@ import { AnalysisDisplay } from './AnalysisDisplay';
 import { LoadingAnimation } from './LoadingAnimation';
 import type { AnalysisResponse } from './types';
 
-const ANALYZE_URL = 'https://temp-server-u0iz.onrender.com/analyze-sentence';
+// const ANALYZE_URL = 'https://temp-server-u0iz.onrender.com/analyze-sentence';
+const ANALYZE_URL = 'http://localhost:5000/analyze-sentence';
 
 async function analyzeSentence(sentence: string): Promise<AnalysisResponse> {
   try {
@@ -28,7 +29,7 @@ async function analyzeSentence(sentence: string): Promise<AnalysisResponse> {
     if (!data || (!data.analysis && !data.success)) {
       throw new Error('Invalid response from server. Please try again.');
     }
-
+    console;
     return data;
   } catch (error) {
     if (error instanceof TypeError && error.message.includes('fetch')) {

@@ -122,6 +122,7 @@ function DifficultyMeter({ score }: { score?: number }) {
 }
 
 export function AnalysisDisplay({ analysis }: AnalysisProps) {
+  console.log(analysis);
   return (
     <div className='space-y-6 animate-fadeIn'>
       {/* Original Sentence Card */}
@@ -668,7 +669,7 @@ export function AnalysisDisplay({ analysis }: AnalysisProps) {
           }
         >
           <div className='space-y-4'>
-            {(analysis?.clauses?.independent?.length ?? 0) > 0 && (
+            {/* {(analysis?.clauses?.independent?.length ?? 0) > 0 && (
               <div>
                 <p className='mb-2 text-sm font-medium text-gray-500 dark:text-gray-400'>
                   Independent Clauses
@@ -701,7 +702,7 @@ export function AnalysisDisplay({ analysis }: AnalysisProps) {
                   ))}
                 </div>
               </div>
-            )}
+            )} */}
           </div>
         </SectionCard>
 
@@ -733,9 +734,23 @@ export function AnalysisDisplay({ analysis }: AnalysisProps) {
                   className='flex items-start gap-3 px-4 py-3 border border-red-200 rounded-lg bg-red-50 dark:bg-red-900/20 dark:border-red-800'
                 >
                   <span className='text-red-500'>⚠️</span>
-                  <span className='text-red-700 dark:text-red-300'>
-                    {error}
-                  </span>
+                  <div className='flex-1'>
+                    {error.type && (
+                      <div className='mb-1 text-xs font-semibold text-red-600 uppercase dark:text-red-400'>
+                        {error.type}
+                      </div>
+                    )}
+                    {error.issue && (
+                      <div className='mb-1 text-red-700 dark:text-red-300'>
+                        {error.issue}
+                      </div>
+                    )}
+                    {error.suggestion && (
+                      <div className='text-sm text-red-600 dark:text-red-400'>
+                        💡 {error.suggestion}
+                      </div>
+                    )}
+                  </div>
                 </div>
               ))}
             </div>

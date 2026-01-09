@@ -1,0 +1,218 @@
+export type VocabWord = {
+  id: string;
+  word: string;
+  definition: string;
+  partOfSpeech?: string;
+  example?: string;
+  difficulty?: "intro" | "medium" | "advanced";
+  synonyms?: string[];
+};
+
+export const VOCAB_WORDS: VocabWord[] = [
+  {
+    id: "aberration",
+    word: "Aberration",
+    definition:
+      "A departure from what is normal or expected, typically unwelcome.",
+    partOfSpeech: "noun",
+    example: "The warm winter was an aberration that concerned scientists.",
+    difficulty: "medium",
+    synonyms: ["anomaly", "deviation"],
+  },
+  {
+    id: "alacrity",
+    word: "Alacrity",
+    definition: "Brisk and cheerful readiness to do something.",
+    partOfSpeech: "noun",
+    example: "She accepted the invitation with surprising alacrity.",
+    difficulty: "intro",
+    synonyms: ["eagerness", "enthusiasm"],
+  },
+  {
+    id: "ambivalent",
+    word: "Ambivalent",
+    definition:
+      "Having mixed or opposing feelings at the same time about something or someone.",
+    partOfSpeech: "adjective",
+    example: "He felt ambivalent about the job offer abroad.",
+    difficulty: "intro",
+    synonyms: ["uncertain", "torn"],
+  },
+  {
+    id: "castigate",
+    word: "Castigate",
+    definition: "To criticize or reprimand someone severely.",
+    partOfSpeech: "verb",
+    example: "The coach did not hesitate to castigate the team after the loss.",
+    difficulty: "medium",
+    synonyms: ["rebuke", "scold"],
+  },
+  {
+    id: "enervate",
+    word: "Enervate",
+    definition: "To drain someone of energy or vitality; to weaken.",
+    partOfSpeech: "verb",
+    example: "The relentless heat would enervate any traveler.",
+    difficulty: "advanced",
+    synonyms: ["weaken", "sap"],
+  },
+  {
+    id: "equivocate",
+    word: "Equivocate",
+    definition: "To speak ambiguously in order to avoid telling the truth.",
+    partOfSpeech: "verb",
+    example:
+      "The spokesperson continued to equivocate when pressed for details.",
+    difficulty: "advanced",
+    synonyms: ["hedge", "prevaricate"],
+  },
+  {
+    id: "fastidious",
+    word: "Fastidious",
+    definition: "Very attentive to and concerned about accuracy and detail.",
+    partOfSpeech: "adjective",
+    example: "Her fastidious notes made studying easier for the whole class.",
+    difficulty: "medium",
+    synonyms: ["meticulous", "exact"],
+  },
+  {
+    id: "inculcate",
+    word: "Inculcate",
+    definition:
+      "To instill an attitude, idea, or habit through persistent instruction.",
+    partOfSpeech: "verb",
+    example: "They tried to inculcate a love for reading in their children.",
+    difficulty: "advanced",
+    synonyms: ["instill", "impart"],
+  },
+  {
+    id: "magnanimous",
+    word: "Magnanimous",
+    definition:
+      "Generous or forgiving, especially toward a rival or less powerful person.",
+    partOfSpeech: "adjective",
+    example:
+      "In victory she remained magnanimous, praising her opponent's effort.",
+    difficulty: "medium",
+    synonyms: ["generous", "charitable"],
+  },
+  {
+    id: "obstinate",
+    word: "Obstinate",
+    definition:
+      "Stubbornly refusing to change one's opinion or course of action.",
+    partOfSpeech: "adjective",
+    example: "He remained obstinate despite the persuasive arguments.",
+    difficulty: "intro",
+    synonyms: ["stubborn", "unyielding"],
+  },
+  {
+    id: "placate",
+    word: "Placate",
+    definition: "To make someone less angry or hostile.",
+    partOfSpeech: "verb",
+    example:
+      "The manager attempted to placate the unhappy customers with vouchers.",
+    difficulty: "intro",
+    synonyms: ["soothe", "calm"],
+  },
+  {
+    id: "reticent",
+    word: "Reticent",
+    definition: "Inclined to be silent or uncommunicative; reserved.",
+    partOfSpeech: "adjective",
+    example: "The normally reticent student surprised everyone by speaking up.",
+    difficulty: "medium",
+    synonyms: ["reserved", "tight-lipped"],
+  },
+  {
+    id: "sagacious",
+    word: "Sagacious",
+    definition: "Having or showing keen mental discernment and good judgment.",
+    partOfSpeech: "adjective",
+    example: "Her sagacious counsel kept the project from derailing.",
+    difficulty: "advanced",
+    synonyms: ["wise", "perceptive"],
+  },
+  {
+    id: "ubiquitous",
+    word: "Ubiquitous",
+    definition: "Present, appearing, or found everywhere.",
+    partOfSpeech: "adjective",
+    example: "Smartphones have become ubiquitous in modern classrooms.",
+    difficulty: "intro",
+    synonyms: ["omnipresent", "pervasive"],
+  },
+  {
+    id: "laconic",
+    word: "Laconic",
+    definition: "Using very few words; concise to the point of seeming rude.",
+    partOfSpeech: "adjective",
+    example: "His laconic reply left everyone wondering what he truly thought.",
+    difficulty: "advanced",
+    synonyms: ["succinct", "brief"],
+  },
+  {
+    id: "scrupulous",
+    word: "Scrupulous",
+    definition: "Diligent, thorough, and extremely attentive to details.",
+    partOfSpeech: "adjective",
+    example: "The editor was scrupulous about fact-checking every claim.",
+    difficulty: "medium",
+    synonyms: ["meticulous", "conscientious"],
+  },
+  {
+    id: "obviate",
+    word: "Obviate",
+    definition: "To remove a need or difficulty; to prevent something.",
+    partOfSpeech: "verb",
+    example: "Regular backups obviate the risk of losing important files.",
+    difficulty: "advanced",
+    synonyms: ["prevent", "preclude"],
+  },
+  {
+    id: "perfunctory",
+    word: "Perfunctory",
+    definition: "Carried out with minimal effort or reflection.",
+    partOfSpeech: "adjective",
+    example: "He gave a perfunctory nod before moving on to the next task.",
+    difficulty: "medium",
+    synonyms: ["cursory", "superficial"],
+  },
+  {
+    id: "avarice",
+    word: "Avarice",
+    definition: "Extreme greed for wealth or material gain.",
+    partOfSpeech: "noun",
+    example: "The tale warned that avarice can destroy even the noblest heart.",
+    difficulty: "advanced",
+    synonyms: ["greed", "covetousness"],
+  },
+  {
+    id: "eschew",
+    word: "Eschew",
+    definition: "To deliberately avoid using or abstain from something.",
+    partOfSpeech: "verb",
+    example: "They choose to eschew processed foods whenever possible.",
+    difficulty: "medium",
+    synonyms: ["shun", "avoid"],
+  },
+  {
+    id: "ephemeral",
+    word: "Ephemeral",
+    definition: "Lasting for a very short time.",
+    partOfSpeech: "adjective",
+    example: "The artist captured the ephemeral glow of sunrise in paint.",
+    difficulty: "intro",
+    synonyms: ["fleeting", "transient"],
+  },
+  {
+    id: "benevolent",
+    word: "Benevolent",
+    definition: "Well meaning and kindly in nature.",
+    partOfSpeech: "adjective",
+    example: "Their benevolent gestures made newcomers feel welcome.",
+    difficulty: "intro",
+    synonyms: ["kind", "charitable"],
+  },
+];

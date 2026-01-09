@@ -91,6 +91,12 @@ export interface DifficultyRating {
   reasoning?: string;
 }
 
+export interface ErrorItem {
+  type?: string;
+  issue?: string;
+  suggestion?: string;
+}
+
 export interface Analysis {
   original?: string;
   corrected?: string;
@@ -102,7 +108,7 @@ export interface Analysis {
   phrases?: Phrases;
   wordsAnalysis?: WordsAnalysis;
   punctuation?: Punctuation;
-  errors?: string[];
+  errors?: ErrorItem[];
   improvements?: string[];
   learningTips?: string[];
   keyGrammarConcepts?: string[];
